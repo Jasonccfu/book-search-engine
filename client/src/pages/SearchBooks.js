@@ -6,7 +6,6 @@ import { SAVE_BOOK } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import { saveBook, searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
-// import { useQuery, useMutation } from '@apollo/client';
 const SearchBooks = () => {
   // create state for holding returned google api data
   const [searchedBooks, setSearchedBooks] = useState([]);
@@ -106,7 +105,7 @@ const SearchBooks = () => {
         <Row>
           {searchedBooks.map((book) => {
             return (
-              <Col md='4'>
+              <Col md='4' key={book.bookId}>
                 <Card key={book.bookId} border='dark'>
                   {book.image ? (
                     <Card.Img
